@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secret Treasure Hunt</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Courier New', monospace;
+        background-image: url('https://raw.githubusercontent.com/gargmudit11-bit/camp-halfblood/main/puzzle6-background.png');
+        background-size: cover;           /* Fill screen */
+        background-position: top center;  /* Anchor top */
+        background-repeat: no-repeat;
+        background-color: #f5e1a4;        /* Fallback parchment color */
+        color: #3e2f1c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+    }
+    .container {
+        background-color: rgba(245, 225, 164, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+    }
+    h1 {
+        font-size: 3em;
+        text-shadow: 2px 2px #d4b483;
+        margin-bottom: 20px;
+    }
+    input {
+        padding: 10px;
+        font-size: 1.2em;
+        border: 2px solid #b08d57;
+        background-color: #f5e1a4;
+        color: #3e2f1c;
+        width: 300px;
+        max-width: 80%;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        background-color: #b08d57;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    button:hover {
+        background-color: #8b6b3d;
+    }
+    .result {
+        margin-top: 20px;
+        font-size: 1.5em;
+        background-color: rgba(245, 225, 164, 0.8);
+        display: inline-block;
+        padding: 15px;
+        border: 2px dashed #3e2f1c;
+    }
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2em;
+        }
+        input {
+            width: 80%;
+            font-size: 1em;
+        }
+        button {
+            font-size: 1em;
+            margin-top: 10px;
+            margin-left: 0;
+            display: block;
+        }
+    }
+</style>
+</head>
+<body>
+<audio autoplay loop>
+    <source src="YOUR_AUDIO_FILE_URL" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<div class="container">
+    <h1>Enter the Secret Phrase</h1>
+    <input type="text" id="password" placeholder="Type your password here">
+    <button onclick="checkPassword()">Unlock</button>
+    <div id="output" class="result" style="display:none;"></div>
+</div>
+
+<script>
+function normalize(str) {
+    return str.replace(/\s+/g, '').toUpperCase();
+}
+function checkPassword() {
+    const input = document.getElementById('password').value;
+    const correct = "MEETMEATTHEOLDPINETREEATSUNSET";
+    if (normalize(input) === normalize(correct)) {
+        document.getElementById('output').style.display = 'block';
+        document.getElementById('output').innerText = "📍 Coordinates: 37.7749° N, 122.4194° W";
+    } else {
+        document.getElementById('output').style.display = 'block';
+        document.getElementById('output').innerText = "❌ Incorrect password. Try again!";
+    }
+}
+</script>
+
+</body>
+</html>
