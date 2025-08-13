@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secret Treasure Hunt</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Courier New', monospace;
+        background: url('https://drive.google.com/uc?export=view&id=1z4wdlqr9_5QbPykLb1X-Lzw2q7tibTfo') no-repeat center center fixed;
+        background-size: cover;
+        color: #3e2f1c;
+        text-align: center;
+        padding-top: 100px;
+    }
+    h1 {
+        font-size: 3em;
+        text-shadow: 2px 2px #d4b483;
+    }
+    input {
+        padding: 10px;
+        font-size: 1.2em;
+        border: 2px solid #b08d57;
+        background-color: #f5e1a4;
+        color: #3e2f1c;
+        width: 300px;
+        max-width: 80%;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        background-color: #b08d57;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    button:hover {
+        background-color: #8b6b3d;
+    }
+    .result {
+        margin-top: 20px;
+        font-size: 1.5em;
+        background-color: rgba(245, 225, 164, 0.8);
+        display: inline-block;
+        padding: 15px;
+        border: 2px dashed #3e2f1c;
+    }
+</style>
+</head>
+<body>
+<audio autoplay loop>
+    <source src="YOUR_AUDIO_FILE_URL" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<h1>Enter the Secret Phrase</h1>
+<input type="text" id="password" placeholder="Type your password here">
+<button onclick="checkPassword()">Unlock</button>
+
+<div id="output" class="result" style="display:none;"></div>
+
+<script>
+function normalize(str) {
+    return str.replace(/\s+/g, '').toUpperCase();
+}
+function checkPassword() {
+    const input = document.getElementById('password').value;
+    const correct = "MEETMEATTHEOLDPINETREEATSUNSET";
+    if (normalize(input) === normalize(correct)) {
+        document.getElementById('output').style.display = 'block';
+        document.getElementById('output').innerText = "📍 Coordinates: 37.7749° N, 122.4194° W";
+    } else {
+        document.getElementById('output').style.display = 'block';
+        document.getElementById('output').innerText = "❌ Incorrect password. Try again!";
+    }
+}
+</script>
+
+</body>
+</html>
