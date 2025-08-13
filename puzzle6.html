@@ -7,15 +7,27 @@
     body {
         margin: 0;
         font-family: 'Courier New', monospace;
-        background: url('https://drive.google.com/uc?export=view&id=1z4wdlqr9_5QbPykLb1X-Lzw2q7tibTfo') no-repeat center center fixed;
-        background-size: cover;
+        background-image: url('https://raw.githubusercontent.com/gargmudit11-bit/camp-halfblood/main/puzzle6-background.png');
+        background-size: cover;           /* Fill screen */
+        background-position: top center;  /* Anchor top */
+        background-repeat: no-repeat;
+        background-color: #f5e1a4;        /* Fallback parchment color */
         color: #3e2f1c;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
         text-align: center;
-        padding-top: 100px;
+    }
+    .container {
+        background-color: rgba(245, 225, 164, 0.6);
+        padding: 20px;
+        border-radius: 10px;
     }
     h1 {
         font-size: 3em;
         text-shadow: 2px 2px #d4b483;
+        margin-bottom: 20px;
     }
     input {
         padding: 10px;
@@ -46,6 +58,21 @@
         padding: 15px;
         border: 2px dashed #3e2f1c;
     }
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2em;
+        }
+        input {
+            width: 80%;
+            font-size: 1em;
+        }
+        button {
+            font-size: 1em;
+            margin-top: 10px;
+            margin-left: 0;
+            display: block;
+        }
+    }
 </style>
 </head>
 <body>
@@ -54,11 +81,12 @@
     Your browser does not support the audio element.
 </audio>
 
-<h1>Enter the Secret Phrase</h1>
-<input type="text" id="password" placeholder="Type your password here">
-<button onclick="checkPassword()">Unlock</button>
-
-<div id="output" class="result" style="display:none;"></div>
+<div class="container">
+    <h1>Enter the Secret Phrase</h1>
+    <input type="text" id="password" placeholder="Type your password here">
+    <button onclick="checkPassword()">Unlock</button>
+    <div id="output" class="result" style="display:none;"></div>
+</div>
 
 <script>
 function normalize(str) {
